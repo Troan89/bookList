@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import styled from "styled-components";
-import {NavLink, Outlet} from "react-router-dom";
+import {NavLink, Outlet, useNavigate} from "react-router-dom";
 
 function App() {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate('/books');
+    }, []);
+
     return (
         <WrapperApp>
             <NavBar>
@@ -25,7 +32,7 @@ const WrapperApp = styled.div`
 
 `
 
-const NavBar = styled.div`
+const NavBar = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -33,7 +40,7 @@ const NavBar = styled.div`
     background-color: #61dafb;
 `
 
-const Content = styled.div`
+const Content = styled.main`
     width: 800px;
     background-color: bisque;
 `
